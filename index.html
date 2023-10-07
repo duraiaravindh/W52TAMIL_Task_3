@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET', 'https://restcountries.com/v3.1/all');
+
+        xhr.send();
+
+        xhr.onload = function () {
+            let countryDetails = JSON.parse(xhr.responseText);
+            console.log(countryDetails)
+
+            // Using Map function
+
+            console.log(countryDetails.map((country) => country.flag))
+            console.log(countryDetails.map((country) => country.name.official))
+            console.log(countryDetails.map((country) => country.region))
+            console.log(countryDetails.map((country) => country.subregion))
+            console.log(countryDetails.map((country) => country.population))
+
+            // Using for loop
+            // for (let i = 0; i < countryDetails.length; i++) {
+            //     (console.log("flag : " + countryDetails[i].flag +",",
+            //     "Official_Name : " + countryDetails[i].name.official +",",
+            //     "Region : " + countryDetails[i].region +",",
+            //     "Subregion : " + countryDetails[i].subregion +",",
+            //     "population : " + countryDetails[i].population));
+            // }
+        };
+    </script>
+</body>
+
+</html>
